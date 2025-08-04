@@ -18,8 +18,8 @@ async def process_workqueue(workqueue: Workqueue):
 
     for item in workqueue:
         with item:
-            data = item.get_data_as_dict()
-
+            data = item.data  # Item data deserialized from json as dict
+ 
             try:
                 # Process the item here
                 pass
