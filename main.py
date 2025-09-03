@@ -2,7 +2,7 @@ import asyncio
 import logging
 import sys
 
-from automation_server_client import AutomationServer, Workqueue, WorkItemError
+from automation_server_client import AutomationServer, Workqueue, WorkItemError, Credential
 
 
 async def populate_queue(workqueue: Workqueue):
