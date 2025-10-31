@@ -36,10 +36,7 @@ if __name__ == "__main__":
     workqueue = ats.workqueue()
 
     # Initialize external systems for automation here..
-    logger.info("Automation started with following parameters:")
-    logger.info(f" - Workqueue: {workqueue.id}")
-    logger.info(f" - ATS Server: {ats.server_url}")
-    logger.info(f" - {sys.argv}")
+    logger.info("Automation started with following parameters: %s", sys.argv)
     # Queue management
     if "--queue" in sys.argv:
         workqueue.clear_workqueue("new")
