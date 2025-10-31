@@ -31,11 +31,15 @@ async def process_workqueue(workqueue: Workqueue):
 
 if __name__ == "__main__":
     ats = AutomationServer.from_environment()
+    logger = logging.getLogger(__name__)
 
     workqueue = ats.workqueue()
 
     # Initialize external systems for automation here..
-
+    logger.info("Automation started with following parameters:")
+    logger.info(f" - Workqueue: {workqueue.id}")
+    logger.info(f" - ATS Server: {ats.server_url}")
+    logger.info(f" - {sys.argv}")
     # Queue management
     if "--queue" in sys.argv:
         workqueue.clear_workqueue("new")
