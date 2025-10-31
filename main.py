@@ -9,6 +9,9 @@ async def populate_queue(workqueue: Workqueue):
     logger = logging.getLogger(__name__)
 
     logger.info("Hello from populate workqueue!")
+    for i in range(10):
+        item = workqueue.create_workitem(data={"index": i})
+        workqueue.add_workitem(item)
 
 
 async def process_workqueue(workqueue: Workqueue):
