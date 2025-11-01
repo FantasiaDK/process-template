@@ -10,8 +10,7 @@ async def populate_queue(workqueue: Workqueue):
 
     logger.info("Hello from populate workqueue!")
     for i in range(10):
-        item = workqueue.create_workitem(data={"index": i})
-        workqueue.add_workitem(item)
+        workqueue.add_item(data={"index": i}, reference=f"item-{i}")
 
 
 async def process_workqueue(workqueue: Workqueue):
